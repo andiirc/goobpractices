@@ -3,30 +3,30 @@ import logo from './logo.svg';
 import './App.css';
 
 class Button extends Component{
-  constructor(props){
-    super(props)
-    this.borderColor = '#09f'
-  }
-
   render(){
     return(
-      <button style={ {borderColor: this.borderColor, display: 'block'} }>{this.props.label}</button>
+      <button style={ {borderColor: this.props.borderColor, display: 'block'} }>{this.props.label}</button>
     )
   }
 }
 
-class ButtonDanger extends Button{
-  constructor(props){
-    super(props)
-    this.borderColor = 'red'
+Button.defaultProps = {
+  borderColor = '#09f'
+}
+
+class ButtonDanger extends Component{
+  render(){
+    return(
+      <Button borderColor='red' label={this.props.label}/>
+    )
   }
 }
 
-class ButtonWithLegend extends Button{
+class ButtonWithLegend extends Component{
   render(){
     return (
       <div>
-        {super.render()}
+        <Button borderColor={this.props.borderColor} label={this.props.label}/>
         <small>{this.props.legend}</small>
       </div>
     )
@@ -37,12 +37,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h4>Composicion vs Herencia</h4>
-        <Button label="Dar Click"/>
+        <h4>Composicion</h4>
+        <Button label="Dar Click aqui con composicion"/>
         <br/>
-        <ButtonDanger label="Cuidado !!" />
+        <ButtonDanger label="Cuidado con composicion!!" />
         <br />
-        <ButtonWithLegend label="Dar Click" legend="explicacion" />
+        <ButtonWithLegend label="Boton explicacion composicion" legend="explicacion" />
       </div>
     );
   }
