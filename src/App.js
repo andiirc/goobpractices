@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Article from './sections/article'
+import Input from './sections/input'
 
 class Button extends Component{
   render(){
@@ -11,7 +13,7 @@ class Button extends Component{
 }
 
 Button.defaultProps = {
-  borderColor = '#09f'
+  borderColor: '#09f'
 }
 
 class ButtonDanger extends Component{
@@ -41,8 +43,12 @@ class App extends Component {
         <Button label="Dar Click aqui con composicion"/>
         <br/>
         <ButtonDanger label="Cuidado con composicion!!" />
-        <br />
+        <br />toLocaleString
         <ButtonWithLegend label="Boton explicacion composicion" legend="explicacion" />
+        <br />
+        <Article author="Anderson" date={new Date().toLocaleDateString() } title="articulo sobre stateless"/>
+        <br />
+        <Input type="text" label="nombre"/>
       </div>
     );
   }
