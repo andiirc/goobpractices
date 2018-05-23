@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Article from './sections/article'
 import Input from './sections/input'
+import BitCoinPriceContainer from './sections/container-component'
 
 class Button extends Component{
   render(){
@@ -49,6 +50,8 @@ class App extends Component {
         <Article author="Anderson" date={new Date().toLocaleDateString() } title="articulo sobre stateless"/>
         <br />
         <Input type="text" label="nombre"/>
+        <br />
+        <BitCoinPriceContainer />
       </div>
     );
   }
